@@ -21,15 +21,16 @@ resource "azurerm_mssql_server" "example" {
   }
 
   tags = {
-    env   = "prod"
-    team  = "devops"
-    proj  = "sql"
-    tf    = "true"
-    comp  = "yes"
-    crit  = "yes"
-    patch = "yes"
-    upd   = "2025-06-30"
-  }
+  Environment        = "Production"
+  Team               = "DevOps"
+  Project            = "SQL"
+  ManagedByTerraform = "true"
+  Compliance         = "yes"
+  Critical           = "yes"
+  PatchRequired      = "yes"
+  LastUpdated        = "2025-06-30"
+}
+
 
   lifecycle {
     prevent_destroy = false

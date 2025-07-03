@@ -5,9 +5,7 @@ resource "azurerm_storage_account" "storage_account" {
   location                 = var.location_name
   account_tier             = "Standard"
   account_replication_type = "LRS"
-
-  allow_blob_public_access  = false
-  enable_https_traffic_only = true
+  
   min_tls_version           = "TLS1_2"
 
   tags = {

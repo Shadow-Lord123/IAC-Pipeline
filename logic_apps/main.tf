@@ -5,7 +5,7 @@ resource "azurerm_storage_account" "storage_account" {
   location                 = var.location_name
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  
+
   min_tls_version           = "TLS1_2"
 
   tags = {
@@ -42,7 +42,6 @@ resource "azurerm_logic_app_standard" "logic_app" {
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME"     = "node",
     "WEBSITE_NODE_DEFAULT_VERSION" = "~18",
-    "AzureWebJobsStorage"          = azurerm_storage_account.storage_account.primary_connection_string
   }
 
   identity {

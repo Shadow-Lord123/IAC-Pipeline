@@ -28,5 +28,6 @@ module "data_factory" {
 module "logic_apps" {
   source = "./logic_apps" 
   rg_name = var.rg_name
-  location_name = var.location_name     
+  location_name = var.location_name
+  dev_rg_name = module.app_functions.resource_group_name    
 }

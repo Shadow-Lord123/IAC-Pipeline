@@ -1,6 +1,6 @@
 
 resource "azurerm_storage_account" "example" {
-  name                     = "logicstorageaccount"
+  name                     = "kritagyastorageaccount"
   resource_group_name      = var.dev_rg_name
   location                 = var.location_name
   account_tier             = "Standard"

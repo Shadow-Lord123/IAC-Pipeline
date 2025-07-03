@@ -31,3 +31,11 @@ module "logic_apps" {
   location_name = var.location_name
   dev_rg_name = module.app_functions.resource_group_name    
 }
+
+module "signalr_service" {
+  source = "./signalr_service" 
+  rg_name = var.rg_name
+  location_name = var.location_name
+  dev_rg_name = module.app_functions.resource_group_name    
+}
+

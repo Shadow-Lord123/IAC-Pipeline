@@ -31,10 +31,6 @@ resource "azurerm_mssql_server" "example" {
   LastUpdated        = "2025-06-30"
 }
 
-
-  lifecycle {
-    prevent_destroy = false
-  }
 }
 
 resource "azurerm_mssql_firewall_rule" "allow_my_ip" {
@@ -49,4 +45,6 @@ resource "azurerm_mssql_firewall_rule" "allow_azure" {
   server_id         = azurerm_mssql_server.example.id
   start_ip_address  = "0.0.0.0"
   end_ip_address    = "0.0.0.0"
+
+  depends_on = [azurerm_mssql_server.example]
 }

@@ -5,7 +5,7 @@ resource "azurerm_signalr_service" "example" {
   resource_group_name = var.dev_rg_name
 
   sku {
-    name     = "Free_F1"
+    name     = "Standard_S1"
     capacity = 1
   }
 
@@ -17,7 +17,7 @@ resource "azurerm_signalr_service" "example" {
 
   connectivity_logs_enabled = true
   messaging_logs_enabled    = true
-  service_mode              = "Default"
+  service_mode              = "Serverless"
 
   upstream_endpoint {
     category_pattern = ["connections", "messages"]
@@ -36,3 +36,4 @@ resource "azurerm_signalr_service" "example" {
     owner       = "integration-team"
   }
 }
+

@@ -17,7 +17,7 @@ resource "azurerm_signalr_service" "example" {
 
   connectivity_logs_enabled = true
   messaging_logs_enabled    = true
-  service_mode              = "Serverless"
+  
 
   upstream_endpoint {
     category_pattern = ["connections", "messages"]

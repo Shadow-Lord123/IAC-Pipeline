@@ -4,8 +4,8 @@ resource "azurerm_signalr_service" "example" {
   location            = var.location_name
   resource_group_name = var.dev_rg_name
 
-  sku {
-    name     = "Free_F1"
+ sku {
+    name     = "Standard_S1"
     capacity = 1
   }
 
@@ -17,7 +17,7 @@ resource "azurerm_signalr_service" "example" {
 
   connectivity_logs_enabled = true
   messaging_logs_enabled    = true
-  service_mode              = "Default" 
+  service_mode = "Serverless" 
 
   identity {
     type = "SystemAssigned"

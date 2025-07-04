@@ -1,5 +1,3 @@
 rg_name = "DevRG"
 location_name = "UK South"
 object_id = "6fffeafb-a629-4963-9a0c-85cd6d357914"
-tenant_id       = "6de1ce30-fe8d-4c84-9bb4-b1e5ab5655cb"
-subscription_id = "2981bf38-3a73-4a81-8373-416f0d45f251"

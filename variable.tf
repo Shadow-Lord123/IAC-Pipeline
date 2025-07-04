@@ -13,13 +13,4 @@ variable "object_id" {
   type        = string
 }
 
-variable "tenant_id" {
-  description = "The Azure Active Directory tenant ID"
-  type        = string
-}
-
-variable "subscription_id" {
-  description = "The Azure Subscription ID"
-  type        = string
-}
 

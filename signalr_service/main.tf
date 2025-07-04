@@ -1,6 +1,6 @@
 
 resource "azurerm_signalr_service" "example" {
-  name                = "kritagya-signalr"
+  name                = "tfex-signalr"
   location            = var.location_name
   resource_group_name = var.dev_rg_name
 
@@ -17,7 +17,7 @@ resource "azurerm_signalr_service" "example" {
 
   connectivity_logs_enabled = true
   messaging_logs_enabled    = true
-  service_mode              = "Serverless"
+  service_mode              = "Default" 
 
   identity {
     type = "SystemAssigned"

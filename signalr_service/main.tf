@@ -17,14 +17,7 @@ resource "azurerm_signalr_service" "example" {
 
   connectivity_logs_enabled = true
   messaging_logs_enabled    = true
-  
-
-  upstream_endpoint {
-    category_pattern = ["connections", "messages"]
-    event_pattern    = ["*"]
-    hub_pattern      = ["hub1"]
-    url_template     = "http://foo.com"
-  }
+  service_mode              = "Serverless"
 
   identity {
     type = "SystemAssigned"
@@ -36,4 +29,3 @@ resource "azurerm_signalr_service" "example" {
     owner       = "integration-team"
   }
 }
-

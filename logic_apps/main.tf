@@ -13,9 +13,7 @@ resource "azurerm_storage_account" "storage_account" {
     team        = "integration"
   }
 
-  lifecycle {
-    prevent_destroy = true
-  }
+
 }
 
 resource "azurerm_service_plan" "service-plan" {

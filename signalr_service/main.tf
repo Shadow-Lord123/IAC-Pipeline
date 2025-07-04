@@ -1,6 +1,6 @@
 
 resource "azurerm_signalr_service" "example" {
-  name                = "tfex-signalr"
+  name                = "kritagya-signalr"
   location            = var.location_name
   resource_group_name = var.dev_rg_name
 

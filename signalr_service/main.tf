@@ -5,7 +5,7 @@ resource "azurerm_signalr_service" "example" {
   resource_group_name = var.dev_rg_name
 
   sku {
-    name     = "Standard_S1"
+    name     = "Free_F1"
     capacity = 1
   }
 

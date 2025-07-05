@@ -82,3 +82,14 @@ resource "azurerm_data_factory_dataset_sql_server_table" "sql_table_dataset" {
   linked_service_name = azurerm_data_factory_linked_service_azure_sql_database.sql_link.name
   table_name          = "MyTargetTable"
 }
+
+resource "azurerm_data_factory_linked_service_sftp" "datakrit_sftp" {
+  name            = "datakritSftpLinkedService"
+  data_factory_id = azurerm_data_factory.datakrit_df.id
+
+  authentication_type = "Basic"
+  host                = "sftp.example.com"  
+  port                = 22
+  username            = "foo"                 
+  password            = "bar"              
+}

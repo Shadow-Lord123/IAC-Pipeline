@@ -76,10 +76,9 @@ resource "azurerm_data_factory_linked_service_azure_sql_database" "sql" {
   connection_string  = "Server=tcp:${azurerm_mssql_server.sql_server.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.sql_db.name};User ID=sqladminuser;Password=ChangeM3Now123!;Encrypt=true;Connection Timeout=30;"
 }
 
-resource "azurerm_data_factory_dataset_sql_table" "sql_table" {
+resource "azurerm_data_factory_dataset_sql_server_table" "sql_table" {
   name                = "sqlTableDataset"
   data_factory_id     = azurerm_data_factory.example.id
   linked_service_name = azurerm_data_factory_linked_service_azure_sql_database.sql.name
-
-  table_name = "MyTargetTable"
+  table_name          = "MyTargetTable"
 }

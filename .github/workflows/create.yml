@@ -56,7 +56,8 @@ jobs:
       # ----------------------
       - name: Install Terrascan
         run: |
-          curl -sSL https://github.com/tenable/terrascan/releases/latest/download/terrascan_Linux_x86_64.tar.gz | tar -xz
+          curl -sSL https://github.com/tenable/terrascan/releases/latest/download/terrascan_Linux_x86_64 -o terrascan
+          chmod +x terrascan
           sudo mv terrascan /usr/local/bin/
 
       - name: Run Terrascan
@@ -74,7 +75,7 @@ jobs:
         continue-on-error: true
 
       # ----------------------
-      # Terraform Commands
+      # Terraform Steps
       # ----------------------
       - name: Terraform Init (with upgrade)
         run: terraform init -upgrade
@@ -87,3 +88,4 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+

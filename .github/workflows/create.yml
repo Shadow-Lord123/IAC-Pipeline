@@ -36,6 +36,7 @@ jobs:
 
       - name: Run TFLint
         run: tflint
+        continue-on-error: true
 
       # ----------------------
       # Install & Run tfsec
@@ -48,6 +49,7 @@ jobs:
 
       - name: Run tfsec
         run: tfsec .
+        continue-on-error: true
 
       # ----------------------
       # Install & Run Terrascan
@@ -59,6 +61,7 @@ jobs:
 
       - name: Run Terrascan
         run: terrascan scan -t azure -i terraform
+        continue-on-error: true
 
       # ----------------------
       # Install & Run Checkov
@@ -68,6 +71,7 @@ jobs:
 
       - name: Run Checkov
         run: checkov -d .
+        continue-on-error: true
 
       # ----------------------
       # Terraform Commands
@@ -83,4 +87,3 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
-

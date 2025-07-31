@@ -26,6 +26,9 @@ jobs:
         with:
           terraform_version: 1.6.6  
 
+      # ----------------------
+      # Install & Run TFLint
+      # ----------------------
       - name: Install TFLint
         run: |
           curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
@@ -34,6 +37,41 @@ jobs:
       - name: Run TFLint
         run: tflint
 
+      # ----------------------
+      # Install & Run tfsec
+      # ----------------------
+      - name: Install tfsec
+        run: |
+          curl -sSL https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64 -o tfsec
+          chmod +x tfsec
+          sudo mv tfsec /usr/local/bin/
+
+      - name: Run tfsec
+        run: tfsec .
+
+      # ----------------------
+      # Install & Run Terrascan
+      # ----------------------
+      - name: Install Terrascan
+        run: |
+          curl -sSL https://github.com/tenable/terrascan/releases/latest/download/terrascan_Linux_x86_64.tar.gz | tar -xz
+          sudo mv terrascan /usr/local/bin/
+
+      - name: Run Terrascan
+        run: terrascan scan -t azure -i terraform
+
+      # ----------------------
+      # Install & Run Checkov
+      # ----------------------
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Run Checkov
+        run: checkov -d .
+
+      # ----------------------
+      # Terraform Commands
+      # ----------------------
       - name: Terraform Init (with upgrade)
         run: terraform init -upgrade
 
@@ -45,3 +83,4 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+
